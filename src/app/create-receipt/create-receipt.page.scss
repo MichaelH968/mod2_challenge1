@@ -1,0 +1,21 @@
+  .createImage {
+    border: 1px solid var(--ion-color-primary);
+  }
+  
+  .receiptImage {
+    width: 150px;
+    height: 150px;
+    min-height: 150px;
+    min-width: 150px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.75rem;
+  }
+  .getCost {
+    border: none;
+    outline: none;
+    }
+  
+  

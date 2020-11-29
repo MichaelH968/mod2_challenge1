@@ -1,0 +1,7 @@
+{
+  "name": "receiptApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="modalController.dismiss()"> 
+        <ion-icon slot="icon-only" color="danger" name="close-outline"></ion-icon> 
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{ function }} Receipt</ion-title>
+    <ion-buttons  slot="end">
+      <ion-button (click)="createReceipt()">
+        <ion-icon slot="icon-only"  color="success" name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="receiptForm" role="form">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+        <ion-item>
+            <ion-label position="fixed">
+              <ion-icon size="large" name="pricetag-outline"></ion-icon>
+            </ion-label>
+            <ion-select placeholder="Expense Type" formControlName= "type" >
+              <ion-select-option value="Food">Food</ion-select-option>
+              <ion-select-option value="Hotel">Hotel</ion-select-option>
+              <ion-select-option value="Other">Other</ion-select-option>
+              <ion-select-option value="Parking">Parking</ion-select-option>
+              <ion-select-option value="Travel">Travel</ion-select-option>     
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+      <ion-item>        
+          <ion-label position="fixed">
+            <ion-icon size="large" slot="icon-only" name="document-text-outline"></ion-icon>
+          </ion-label>
+            <input class="ion-padding-start" class="ion-align-self-start" placeholder="Cost" type="tel" class="getCost" currencyMask [options]="{ align: 'left', prefix: '£'}" formControlName="cost"  min="0.01" />
+         </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+      <ion-item>
+          <ion-label position="fixed">
+            <ion-icon size="large" name="today-outline"></ion-icon>
+          </ion-label>
+          <ion-datetime formControlName="receiptDate" placeholder="Select Date" display-format="MMM DD, YYYY HH:mm">
+          </ion-datetime>
+        </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+      <ion-item>
+        <ion-label position="fixed">
+          <ion-icon size="large" name="chatbox-ellipses-outline"></ion-icon>
+        </ion-label>
+        <ion-textarea placeholder="Comment (optional)" formControlName="comment"></ion-textarea>
+      </ion-item>
+        </ion-col>
+      </ion-row>   
+      <ion-row>
+        <ion-col size="12">
+          <ion-item class="createImage" class="ion-padding">
+            <ion-button fill="clear" (click)=" getImage()">
+              <ion-icon slot="start" name="camera"></ion-icon>
+               Add Receipt Image
+            </ion-button>         
+          </ion-item>      
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">       
+            <ion-item class="receiptImage" class="ion-padding" *ngFor="let receiptImg of currentReceipt?.receiptImages; index as position"> 
+              <ion-buttons>
+              <ion-button fill="clear"  (click)="deleteImg(position)">
+                <ion-icon slot="icon-only" color="danger" name="trash"></ion-icon>
+              </ion-button>
+            </ion-buttons> 
+            <img src="{{ receiptImg }}" />
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

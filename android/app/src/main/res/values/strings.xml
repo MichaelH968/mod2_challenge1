@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">receiptApp</string>
+    <string name="title_activity_main">receiptApp</string>
+    <string name="package_name">com.receipt.app</string>
+    <string name="custom_url_scheme">com.receipt.app</string>
+</resources>

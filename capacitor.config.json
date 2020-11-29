@@ -1,0 +1,13 @@
+{
+  "appId": "com.receipt.app",
+  "appName": "receiptApp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
